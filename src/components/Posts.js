@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import Posts from "./components/Posts";
-import PostForm from "./components/PostForm";
 
-class App extends Component {
+
+class Posts extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,12 +23,11 @@ class App extends Component {
     ));
      return (
       <div>
-        <PostForm />
-        <hr />
-        <Posts />
+        <h1>Posts</h1>
+        {postItems}
       </div>
     );
   }
 }
 
-export default App;
+export default Posts;
