@@ -1,6 +1,4 @@
 import { FETCH_POSTS, NEW_POST } from "../actions/types";
-import { connect } from "react-redux";
-import { fetchPosts } from '../actions/postActions'
 
 const initialState = {
   items: [],
@@ -17,7 +15,7 @@ export default function(state = initialState, action) {
     case NEW_POST:
       return {
         ...state,
-        items: action.payload
+        item: action.payload
       };
     default:
       return state;

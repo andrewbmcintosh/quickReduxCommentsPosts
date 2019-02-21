@@ -1,15 +1,14 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { createPost } from '../actions/postActions'
-
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { createPost } from "../actions/postActions";
 
 class PostForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: "",
-      body: " "
+      body: ""
     };
 
     this.onChange = this.onChange.bind(this);
@@ -28,7 +27,7 @@ class PostForm extends Component {
       body: this.state.body
     };
 
-    this.props.createPost(post)
+    this.props.createPost(post);
   }
 
   render() {
@@ -50,8 +49,7 @@ class PostForm extends Component {
           <div>
             <label>Body: </label>
             <br />
-            <input
-              type="text"
+            <textarea
               name="body"
               onChange={this.onChange}
               value={this.state.body}
@@ -67,7 +65,9 @@ class PostForm extends Component {
 
 PostForm.propTypes = {
   createPost: PropTypes.func.isRequired
-}
+};
 
-
-export default connect(null, { createPost })(PostForm);
+export default connect(
+  null,
+  { createPost }
+)(PostForm);
