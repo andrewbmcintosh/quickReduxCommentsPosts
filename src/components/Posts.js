@@ -2,18 +2,6 @@ import React, { Component } from "react";
 
 
 class Posts extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      posts: []
-    };
-  }
-
-  componentWillMount() {
-    fetch("https://my-json-server.typicode.com/typicode/demo/posts")
-      .then(res => res.json())
-      .then(data => this.setState({ posts: data }));
-  }
   render() {
     const postItems = this.state.posts.map(post => (
       <div key={post.id}>
