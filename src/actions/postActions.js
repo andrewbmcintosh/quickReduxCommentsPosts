@@ -11,18 +11,20 @@ export const fetchPosts = () => dispatch => {
     );
 };
 
-export const createPost = (postData) => dispatch => {
-    fetch("https://my-json-server.typicode.com/typicode/demo/posts", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json"
-        },
-        body: JSON.stringify(postData)
+export const createPost = postData => dispatch => {
+  console.log("action called");
+  fetch("https://my-json-server.typicode.com/typicode/demo/posts", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json"
+    },
+    body: JSON.stringify(postData)
+  })
+    .then(res => res.json())
+    .then(post =>
+      dispatch({
+        type: NEW_POST,
+        payload: post
       })
-        .then(res => res.json())
-        .then(post=> dispatch({
-            type: NEW_POST,
-            payload: post
-        }))
-  };
-  
+    );
+};
